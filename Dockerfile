@@ -10,6 +10,9 @@ RUN emerge -1 virtual/perl-File-Temp
 RUN emerge -c
 RUN rm -r /usr/portage
 
+RUN echo 'CHOST="x86_64-pc-linux-gnu"' >> /etc/portage/make.conf
+RUN gcc-config x86_64-pc-linux-gnu-7.2.0
+
 CMD ["/usr/local/sbin/distccd-launcher", "--allow", "0.0.0.0/0", "--user", "distcc", "--log-level", "notice", "--log-stderr", "--no-detach"]
 
 EXPOSE 3632
