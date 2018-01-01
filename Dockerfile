@@ -23,6 +23,7 @@ RUN emerge -1 sys-libs/glibc
 
 # remerge world for PIE
 RUN emerge -e @world
+RUN emerge -1 virtual/perl-File-Temp
 RUN emerge -c
 
 # remove possible remaining symlinks
