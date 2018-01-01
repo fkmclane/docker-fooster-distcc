@@ -19,7 +19,7 @@ RUN eselect profile set default/linux/amd64/17.1
 # remerge gcc, binutils, glibc for PIE
 RUN emerge -1 sys-devel/gcc
 RUN emerge -1 sys-devel/binutils
-RUN emerge -1 sys-devel/glibc
+RUN emerge -1 sys-libs/glibc
 
 # remerge world for PIE
 RUN emerge -e @world
