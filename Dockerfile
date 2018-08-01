@@ -16,15 +16,8 @@ RUN unsymlink-lib --finish
 # update profile
 RUN eselect profile set default/linux/amd64/17.1
 
-# remerge gcc, binutils, glibc for PIE
-RUN emerge -1 sys-devel/gcc
-RUN emerge -1 sys-devel/binutils
-RUN emerge -1 sys-libs/glibc
-
-# remerge world for PIE
-RUN emerge -e @world
-RUN emerge -1 virtual/perl-File-Temp
-RUN emerge -c
+# remerge gcc and lib32
+RUN emerge -1 /usr/lib/gcc /lib32 /usr/lib32
 
 # remove possible remaining symlinks
 RUN rm -f /lib32
